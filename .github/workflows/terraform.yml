@@ -59,6 +59,7 @@ jobs:
             resource_group_name=${{ secrets.TF_STATE_RESOURCE_GROUP }}
             storage_account_name=${{ secrets.TF_STATE_STORAGE_ACCOUNT }}
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ARM_USE_OIDC: "true"
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
