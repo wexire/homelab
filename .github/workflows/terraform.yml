@@ -33,7 +33,7 @@ jobs:
 
       - name: Terraform init
         working-directory: terraform
-        run: terraform init -input=false
+        run: terraform init -input=false -backend=false
 
       - name: Terraform validate
         working-directory: terraform
@@ -55,6 +55,9 @@ jobs:
       - uses: dflook/terraform-plan@v1
         with:
           path: terraform
+          backend_config: |
+            resource_group_name=${{ secrets.TF_STATE_RESOURCE_GROUP }}
+            storage_account_name=${{ secrets.TF_STATE_STORAGE_ACCOUNT }}
         env:
           ARM_USE_OIDC: "true"
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -86,7 +89,10 @@ jobs:
 
       - name: Terraform init
         working-directory: terraform
-        run: terraform init -input=false
+        run: |
+          terraform init -input=false \
+            -backend-config="resource_group_name=${{ secrets.TF_STATE_RESOURCE_GROUP }}" \
+            -backend-config="storage_account_name=${{ secrets.TF_STATE_STORAGE_ACCOUNT }}"
 
       - name: Terraform plan
         working-directory: terraform

@@ -8,7 +8,8 @@ terraform {
     }
   }
 
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "azurerm" {
+    container_name = "tfstate"
+    key            = "homelab.tfstate"
   }
 }
