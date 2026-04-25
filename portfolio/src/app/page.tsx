@@ -62,7 +62,11 @@ export default function Home() {
                 <span className="text-sm text-zinc-500">{job.period}</span>
               </div>
               <p className="text-sky-400 text-sm">{job.company}</p>
-              <p className="text-zinc-400 text-sm mt-1">{job.description}</p>
+              <ul className="mt-2 space-y-1 list-disc list-inside">
+                {job.description.map((item, i) => (
+                  <li key={i} className="text-zinc-400 text-sm">{item}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
