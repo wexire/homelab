@@ -28,8 +28,8 @@ jobs:
           context: portfolio
           push: true
           tags: |
-            homelab/portfolio:latest
-            homelab/portfolio:${{ github.sha }}
+            petropolishchuk2211/portfolio:latest
+            petropolishchuk2211/portfolio:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
