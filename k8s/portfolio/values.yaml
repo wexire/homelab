@@ -1,0 +1,7 @@
+image:
+  repository: petropolishchuk2211/portfolio
+  tag: latest
+
+env:
+  - name: NODE_ENV
+    value: production
