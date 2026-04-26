@@ -1,0 +1,16 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: portfolio
+  namespace: argocd
+spec:
+  appName: portfolio
+  images:
+    - image: petropolishchuk2211/portfolio
+      updateStrategy: digest
+  writeBack:
+    method: git
+    git:
+      branch: feat/initial-setup
+      credentialSecret:
+        name: github-creds
