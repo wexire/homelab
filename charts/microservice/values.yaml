@@ -1,0 +1,29 @@
+replicaCount: 1
+commitSha: ""
+
+image:
+  repository: ""
+  tag: latest
+  pullPolicy: Always
+
+container:
+  port: 3000
+
+service:
+  port: 80
+
+env: []
+# - name: NODE_ENV
+#   value: production
+
+probes:
+  enabled: false
+  path: /health
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
